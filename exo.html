@@ -15,10 +15,41 @@
 	<body>
 		<div id="tabs">
 			<ul>
+				<li><a href="#tabs-0">Readme</a></li>
 				<li><a href="#tabs-1">Version à la main</a></li>
 				<li><a href="#tabs-2">Version jQuery</a></li>
 				<li><a href="#tabs-3">Version MooTools</a></li>
 			</ul>
+			<div id="tabs-0">
+				<h1>Readme</h1>				
+				<h2>Configuration</h2>
+				<section>
+					Pour faire fonctionner notre application web sur votre navigateur, 
+					modifiez le fichier web.xml du dossier WEB-INF/, comme ci-dessous
+					<code>
+						 	<context-param>
+								<param-name>db.driver</param-name>
+								<param-value>org.postgresql.Driver</param-value>
+							</context-param>
+							<context-param>
+								<param-name>db.url</param-name>
+								<param-value>jdbc:postgresql://psqlserv/</param-value>
+							</context-param>
+							<context-param>	
+								<param-name>db.base</param-name>
+								<param-value>da2i</param-value>
+							</context-param>
+							<context-param>	
+								<param-name>db.username</param-name>
+								<param-value>leleuj</param-value>
+							</context-param>
+							<context-param>	
+								<param-name>db.password</param-name>
+								<param-value>moi</param-value>
+							</context-param>
+				</code>
+				</section>
+			</div>
 			<div id="tabs-1">
 				<h1>Version à la main</h1>
 				<textarea name="info" id="main_info" cols="100" row="1"></textarea>
