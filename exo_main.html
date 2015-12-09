@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Index</title>
+		<meta charset="UTF-8" />
+		<script type="text/javascript" src="scripts/ajax.js"></script>
+	</head>
+	<body>
+		<textarea name="info" id="info" cols="100" row="1" value=""></textarea>
+		
+		<h2>Recherche de personnes</h2>
+		
+		<form>
+			<input id="nom" name="nom" type="text" placeHolder="Nom à rechercher" onkeyup="findPersonne()"/>
+		</form>
+		
+		<textarea name="result" id="result" cols="30" rows="20" value=""></textarea>
+		
+		<script type="text/javascript">
+			function count(table) {
+				var ai = new AJAXInteraction("servlet/Count?table=" + table, function(data) {
+					document.getElementById("info").value = "Il y a actuellement " + data.replace("\n", "") + " enregistrements dans la table " + table;
+				});
+				ai.doGet();
+			}
+		
+			function countPersonne() {
+				count("personne");
+			}
+			
+			function findPersonne(event) {
+				var nom = document.getElementById("nom").value;
+				if (nom != "") {
+					var ai = new AJAXInteraction("servlet/RechercherPersonne?nom=" + nom, function(data) {
+						document.getElementById("result").value = data.replace(/;/g, "\n");
+					});
+					ai.doGet();
+				}
+			}
+			
+			setInterval(countPersonne, 5000);
+		</script>
+	</body>
+</html>

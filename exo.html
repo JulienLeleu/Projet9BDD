@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Index</title>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link rel="stylesheet" type="text/css" href="jquery-ui.min.css" />
+		<script type="text/javascript" src="scripts/ajax.js"></script>
+		<script type="text/javascript" src="scripts/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="scripts/exo.js"></script>
+		<script type="text/javascript">
+			 $(function() {
+				$( "#tabs" ).tabs();
+			  });
+		</script>
+	</head>
+	<body>
+		<div id="tabs">
+			<ul>
+				<li><a href="#tabs-1">Version à la main</a></li>
+				<li><a href="#tabs-2">Version jQuery</a></li>
+				<li><a href="#tabs-3">Aenean lacinia</a></li>
+			  </ul>
+			<div id="tabs-1">
+				<h1>Version à la main</h1>
+				<textarea name="info" id="main_info" cols="100" row="1"></textarea>
+				
+				<h2>Recherche de personnes par nom</h2>
+				<form>
+					<input name="nom" id="main_nom" type="text" placeHolder="Nom à rechercher" onkeyup="main_findPersonne(this.value)"/>
+				</form>
+				<textarea name="result" id="main_result" cols="30" rows="10"></textarea>
+				
+				<h2>Recherche de personnes par id</h2>
+				<form>
+					<input name="id" id="main_form_id" placeHolder="Id personne" onkeyup="main_findPersonneById(this.value)"/>
+					<input name="login" id="main_form_login" />
+					<input name="nom" id="main_form_nom" />
+					<input name="prenom" id="main_form_prenom" />
+					<input name="datenaiss" id="main_form_datenaiss" />
+				</form>
+				
+				<h2>Personnes les plus jeunes/agées</h2>
+				<table>
+					<tr>
+						<td><textarea name="result" id="main_textarea_jeunes" cols="30" rows="3"></textarea></td>
+						<td><button type="button" onclick="main_getJeunesVieux()">Raffraichir</button></td>
+						<td><textarea name="result" id="main_textarea_vieux" cols="30" rows="3"></textarea></td>
+					</tr>
+				</table>
+			</div>
+			<div id="tabs-2">
+				<h1>Version jQuery</h1>
+		
+				<textarea name="info" id="jquery_info" cols="100" row="1"></textarea>
+				
+				<h2>Recherche de personnes par nom</h2>
+				<form>
+					<input name="nom" id="jquery_nom" type="text" placeHolder="Nom à rechercher" onkeyup="jquery_findPersonne(this.value)"/>
+				</form>
+				<textarea name="result" id="jquery_result" cols="30" rows="10"></textarea>
+				
+				<h2>Recherche de personnes par id</h2>
+				<form>
+					<input name="id" id="jquery_form_id" placeHolder="Id personne" onkeyup="jquery_findPersonneById(this.value)"/>
+					<input name="login" id="jquery_form_login" />
+					<input name="nom" id="jquery_form_nom" />
+					<input name="prenom" id="jquery_form_prenom" />
+					<input name="datenaiss" id="jquery_form_datenaiss" />
+				</form>
+			</div>
+		</div>
+		
+		<!--
+		<h1>Version MooTools</h1>
+		
+		<textarea name="info" id="mootools_info" cols="100" row="1" value=""></textarea>
+		<h2>Recherche de personnes</h2>
+		<form>
+			<input name="nom" id="mootools_nom" type="text" placeHolder="Nom à rechercher" onkeyup="findPersonne()"/>
+		</form>
+		<textarea name="result" id="mootools_result" cols="30" rows="20" value=""></textarea>
+		
+		<hr>
+		-->
+		
+		<script type="text/javascript">
+			setInterval(main_countPersonne, 5000);
+			setInterval(jquery_countPersonne, 5000);
+		</script>
+	</body>
+</html>
