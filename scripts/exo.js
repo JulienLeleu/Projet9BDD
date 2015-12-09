@@ -59,10 +59,10 @@ function main_getJeunesVieux() {
 		var json = JSON.parse(data);
 		document.getElementById("main_textarea_jeunes").value = "";
 		document.getElementById("main_textarea_vieux").value = "";
-		for (var i in json.jeunes) {
+		for (var i=0; i<json.jeunes.length; i++) {
 			document.getElementById("main_textarea_jeunes").value += json.jeunes[i].nom + "\n";
 		}
-		for (var i in json.vieux) {
+		for (var i=0; i<json.vieux.length; i++) {
 			document.getElementById("main_textarea_vieux").value += json.vieux[i].nom + "\n";
 		}
 	});
@@ -106,10 +106,10 @@ function jquery_getJeunesVieux() {
 		var textareaJeunes = $("#jquery_textarea_jeunes");
 		var textareaVieux = $("#jquery_textarea_vieux");
 		$("#jquery_textarea_jeunes, #jquery_textarea_vieux").val("");
-		for (var i in json.jeunes) {
+		for (var i=0; i<json.jeunes.length; i++) {
 			textareaJeunes.val(textareaJeunes.val() + json.jeunes[i].nom + "\n");
 		}
-		for (var i in json.vieux) {
+		for (var i=0; i<json.vieux.length; i++) {
 			textareaVieux.val(textareaVieux.val() + json.vieux[i].nom + "\n");
 		}
 	}).fail(function() {
@@ -170,7 +170,7 @@ function mootools_findPersonneById(id) {
 				$$('#mootools_form_id').set('text', 'Id inexistant');
 			}
 		});
-	myRequest.send();
+		myRequest.send();
 	}
 }
 
@@ -182,14 +182,13 @@ function mootools_getJeunesVieux() {
 			var json = JSON.parse(data);
 			$$('#mootools_textarea_jeunes').set('text', '');
 			$$('#mootools_textarea_vieux').set('text', '');
-			for (var i in json.jeunes) {
+			for (var i=0; i<json.jeunes.length; i++) {
 					$$('#mootools_textarea_jeunes').set('text', $$('#mootools_textarea_jeunes').get('text') + json.jeunes[i].nom + "\n");
 			}
-			for (var i in json.vieux) {
+			for (var i=0; i<json.vieux.length; i++) {
 					$$('#mootools_textarea_vieux').set('text', $$('#mootools_textarea_vieux').get('text') + json.vieux[i].nom + "\n");
 			}
 		}
 	});
-
 	myRequest.send();
 }
