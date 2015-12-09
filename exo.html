@@ -9,19 +9,14 @@
 		<script type="text/javascript" src="scripts/jquery-2.1.4.min.js"></script>
 		<script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="scripts/exo.js"></script>
-		<script type="text/javascript">
-			 $(function() {
-				$( "#tabs" ).tabs();
-			  });
-		</script>
 	</head>
 	<body>
 		<div id="tabs">
 			<ul>
 				<li><a href="#tabs-1">Version à la main</a></li>
 				<li><a href="#tabs-2">Version jQuery</a></li>
-				<li><a href="#tabs-3">Aenean lacinia</a></li>
-			  </ul>
+				<li><a href="#tabs-3">Version MooTools</a></li>
+			</ul>
 			<div id="tabs-1">
 				<h1>Version à la main</h1>
 				<textarea name="info" id="main_info" cols="100" row="1"></textarea>
@@ -69,6 +64,44 @@
 					<input name="prenom" id="jquery_form_prenom" />
 					<input name="datenaiss" id="jquery_form_datenaiss" />
 				</form>
+				
+				<h2>Personnes les plus jeunes/agées</h2>
+				<table>
+					<tr>
+						<td><textarea name="result" id="jquery_textarea_jeunes" cols="30" rows="3"></textarea></td>
+						<td><button type="button" onclick="jquery_getJeunesVieux()">Raffraichir</button></td>
+						<td><textarea name="result" id="jquery_textarea_vieux" cols="30" rows="3"></textarea></td>
+					</tr>
+				</table>
+			</div>
+			<div id="tabs-3">
+				<h1>Version MooTools</h1>
+
+				<textarea name="info" id="mootools_info" cols="100" row="1"></textarea>
+	
+				<h2>Recherche de personnes par nom</h2>
+				<form>
+					<input name="nom" id="mootools_nom" type="text" placeHolder="Nom à rechercher" onkeyup="mootools_findPersonne(this.value)"/>
+				</form>
+				<textarea name="result" id="mootools_result" cols="30" rows="10"></textarea>
+	
+				<h2>Recherche de personnes par id</h2>
+				<form>
+					<input name="id" id="mootools_form_id" placeHolder="Id personne" onkeyup="mootools_findPersonneById(this.value)"/>
+					<input name="login" id="mootools_form_login" />
+					<input name="nom" id="mootools_form_nom" />
+					<input name="prenom" id="mootools_form_prenom" />
+					<input name="datenaiss" id="mootools_form_datenaiss" />
+				</form>
+	
+				<h2>Personnes les plus jeunes/agées</h2>
+				<table>
+					<tr>
+						<td><textarea name="result" id="mootools_textarea_jeunes" cols="30" rows="3"></textarea></td>
+						<td><button type="button" onclick="mootools_getJeunesVieux()">Raffraichir</button></td>
+						<td><textarea name="result" id="mootools_textarea_vieux" cols="30" rows="3"></textarea></td>
+					</tr>
+				</table>
 			</div>
 		</div>
 		
@@ -86,8 +119,13 @@
 		-->
 		
 		<script type="text/javascript">
+			$(function() {
+				$("#tabs").tabs();
+			});
 			setInterval(main_countPersonne, 5000);
 			setInterval(jquery_countPersonne, 5000);
+			setInterval(main_getJeunesVieux, 5000);
+			setInterval(jquery_getJeunesVieux, 5000);
 		</script>
 	</body>
 </html>

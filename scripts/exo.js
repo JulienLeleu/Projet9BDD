@@ -102,23 +102,19 @@ function jquery_findPersonneById(id) {
 }
 
 function jquery_getJeunesVieux() {
-	$.get("servlet/SelectMinMaxPersonne", function(data) {
-		var json = JSON.parse(data);
+	$.get("servlet/SelectMinMaxPersonne", function(json) {
+		var textareaJeunes = $("#jquery_textarea_jeunes");
+		var textareaVieux = $("#jquery_textarea_vieux");
 		$("#jquery_textarea_jeunes, #jquery_textarea_vieux").val("");
-		json.jeunes
-	});
-	var ai = new AJAXInteraction("servlet/SelectMinMaxPersonne", function(data) {
-		var json = JSON.parse(data);
-		document.getElementById("main_textarea_jeunes").value = "";
-		document.getElementById("main_textarea_vieux").value = "";
 		for (var i in json.jeunes) {
-			document.getElementById("main_textarea_jeunes").value += json.jeunes[i].nom + "\n";
+			textareaJeunes.val(textareaJeunes.val() + json.jeunes[i].nom + "\n");
 		}
 		for (var i in json.vieux) {
-			document.getElementById("main_textarea_vieux").value += json.vieux[i].nom + "\n";
+			textareaVieux.val(textareaVieux.val() + json.vieux[i].nom + "\n");
 		}
+	}).fail(function() {
+		console.log("fail");
 	});
-	ai.doGet();
 }
 
 /** Version MooTools **/
