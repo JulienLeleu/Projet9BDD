@@ -118,3 +118,78 @@ function jquery_getJeunesVieux() {
 }
 
 /** Version MooTools **/
+
+function mootools_countPersonne() {
+
+	var myRequest = new Request({
+		url: "servlet/Count?table=" + table,
+		method: 'get',
+		onRequest: function(){
+		    $$('#mootools_info').set('text', 'loading ...');
+		},
+		onSuccess: function(responseText){
+		    $$('#mootools_info').set('text', stringifyCount(responseText));
+		},
+		onFailure: function(){
+		    $$('#mootools_info').set('text', 'Sorry, your request failed :(');
+		}
+	});
+
+	// and to send it:
+	myRequest.send();
+}
+
+function mootools_findPersonne(nom) {
+	var myRequest = new Request({
+		url: "servlet/RechercherPersonne?nom=" + nom,
+		method: 'get',
+		onSuccess: function(responseText){
+			$$('#mootools_result').set('text', stringifyCSV(responseText));
+		}
+	});
+	myRequest.send();
+}
+
+function mootools_findPersonneById(id) {	
+	if (id != "" && !isNaN(id)) {
+		var myRequest = new Request({
+			url: "servlet/SelectPersonne?id=" + id,
+			method: 'get',
+			onSuccess: function(data){
+				//On se sert de la librairie recommandée par Mootools : XMLToJsObject
+				var json = Object.fromXML(data);
+				console.log(json);
+				$$('#mootools_form_id').set('value', json.id._value);
+				$$('#mootools_form_login').set('value', json.login._value)
+				$$('#mootools_form_nom').set('value', json.nom._value);
+				$$('#mootools_form_prenom').set('value', json.prenom._value);
+				$$('#mootools_form_datenaiss').set('value', json.datenaiss._value);
+			},
+			onFailure: function(){
+				$$('[id ^= jquery_form_').set('text', '');
+				$$('#mootools_form_id').set('text', 'Id inexistant');
+			}
+		});
+	myRequest.send();
+	}
+}
+
+function mootools_getJeunesVieux() {
+	var myRequest = new Request({
+		url: "servlet/SelectMinMaxPersonne",
+		method: 'get',
+		onSuccess: function(data) {
+			var json = JSON.parse(data);
+			$$('#mootools_textarea_jeunes').set('text', '');
+			$$('#mootools_textarea_vieux').set('text', '');
+			for (var i in json.jeunes) {
+					$$('#mootools_textarea_jeunes').set('text', $$('#mootools_textarea_jeunes').get('text') + json.jeunes[i].nom + "\n");
+			}
+			for (var i in json.vieux) {
+					$$('#mootools_textarea_vieux').set('text', $$('#mootools_textarea_vieux').get('text') + json.vieux[i].nom + "\n");
+			}
+		}
+	});
+
+	myRequest.send();
+}
