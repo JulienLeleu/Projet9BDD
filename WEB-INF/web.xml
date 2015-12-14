@@ -10,7 +10,7 @@
     </session-config>
 
     <welcome-file-list>
-        <welcome-file>exo1.html</welcome-file>
+        <welcome-file>exo.html</welcome-file>
     </welcome-file-list>
     
     <context-param>
