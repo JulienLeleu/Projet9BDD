@@ -7,7 +7,6 @@
   - Présentation de jQuery
   - Présentation de MooTools
 - jQuery vs MooTools
-- Reflexions 
 - Conclusion
 
 ##Introduction
@@ -58,13 +57,9 @@ MooTools est une collection d'utilitaires JavaScript conçus pour le développeu
 Il vous permet d'écrire du code puissant et flexible, élégant, bien documenté, avec des API cohérentes.
 Le code de MooTools est largement documenté et facile à lire, ce qui vous permet d'étendre les fonctionnalités pour répondre à vos exigences.
 
-##JQuery vs MooTools
+##jQuery vs MooTools
 
 TODO
-
-##Reflexions
-
-TODO [SCHEMA]
 
 ##Conclusion
 
