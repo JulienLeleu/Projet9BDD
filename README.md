@@ -48,13 +48,13 @@ CREATE TABLE personne(id int, login text NOT NULL, nom text NOT NULL, prenom tex
 
 ## Frameworks
 
-### Présentation [JQuery](https://jquery.com/)
+### Présentation de [JQuery](https://jquery.com/)
 
 JQuery est une librairie Javascript open source légère est rapide conforme au CSS3.
 Ce Toolkit est cross-browser, ce qui signifie qu'il fonctionne sur presque tous les navigateurs du moment.
 Il dispose d'une API en ligne compléte et une communauté assez active.
 
-### Présentation [MooTools](http://mootools.net/)
+### Présentation de [MooTools](http://mootools.net/)
 
 MooTools est une collection d'utilitaires JavaScript conçus pour le développeur intermédiaire à avancé JavaScript.
 Il vous permet d'écrire du code puissant et flexible, élégant, bien documenté, avec des API cohérentes.
@@ -90,7 +90,7 @@ Nous allons illustrer quelques exemples pour lesquels soit jQuery, soit MooTools
 </body>
 ```
 
-|| jQuery | Mootols |
+|| jQuery | Mootools |
 |--------|--------|---------|
 | Accès à la div content | $("#content") | $("content") |
 | Elements "li" du div "menu" | $("#menu ul li") | $$("#menu ul li") |
@@ -157,4 +157,8 @@ setInterval(listerTables, 120000);
 
 ## Conclusion
 
-TODO
+jQuery et MooTools sont deux véritables outils pour la programmation coté client, en JavaScript. En perpétuelle évolution, jQuery et MooTools semblent avoir pris des chemins à la fois communs, mais également opposés. En effet, nous retrouvons une structure d'accès presque similaire via la fonction $(...) ou $$(...) dans le cas de MooTools. Mais pour ce qui est de la suite, la manière d'aborder les choses est différente.
+
+Du coté de jQuery, nous avons une manière simpliste d'affecter des attributs à des éléments, de modifier leur comportement... Du coté de MooTools, la manière de procéder se veut plus structurée, donc plus longue à écrire mais également plus claire.
+
+En définitive, dans notre binôme, nous avons un penchant pour MooTools de par sa concision et sa philosophie. Le fait que tout soit très "carré" rend la programmation plus agréable et plus lisible.
