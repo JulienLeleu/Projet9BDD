@@ -26,7 +26,7 @@ Nous allons donc les illustrer au travers de 4 exemples différents :
 3. Recherche des attributs d'une personne depuis son id.
 4. Listes des cinq personnes les plus âgées et les plus jeunes séparées en 2 textarea avec raffraichissement par intervalle de cinq secondes ou via le clic sur un bouton **Rafraichir**.
 
-Ces exemples sont réalisés dans le fichier exo.html
+Ces exemples sont réalisés dans le fichier *exo.html**
 
 ## Installation
 
@@ -44,7 +44,8 @@ git clone https://github.com/JulienLeleu/Projet9BDD.git
 CREATE TABLE personne(id int, login text NOT NULL, nom text NOT NULL, prenom text NOT NULL, datenaiss DATE, CONSTRAINT pk_personne PRIMARY KEY (id));
 ```
 
-- Démarrez Tomcat et accédez à l'application depuis le contexte /Projet9BDD
+- Démarrez Tomcat et accédez à l'application depuis le contexte **/Projet9BDD**.
+- Vous retrouverez ainsi les exemples à l'adresse **http://localhost:PORT/Projet9BDD/exo.html**
 
 ## Frameworks
 
