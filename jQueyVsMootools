@@ -1,0 +1,41 @@
+https://www.metal3d.org/ticket/jquery-vs-mootools
+
+<body> 
+	<div id="main"> 
+		<div id="menu"> 
+		<ul> 
+			<li>element 1</li> 
+			<li>element 2</li> 
+			<li>element 3</li> 
+			<li>element 4</li> 
+		<ul> 
+		</div> 
+			<div id="status">
+			</div> 
+			<div id="content"> 
+				<p> Un paragraphe ici... </p> 
+				<p> Un paragraphe là... 
+					<a href="montest.php" title="Test de lien" class="ajax">Click</a> 
+					<a href="autre.php" title="Test de lien" class="ajax">Click</a> 
+				</p> 
+		</div>
+	</div> 
+</body>
+
+Avantages JQuery :
+- Plus rapide
+
+Selecteurs :
+## Récupérer la div content
+-JQuery :
+	var content = $(‘#content’);
+-MooTools :
+	var content = $(‘content’);
+
+## Récupérer les éléments “li” du div “menu”
+-JQuery :
+	var lis = $(‘#menu ul li’);
+-MooTools :
+	var lis = $$(‘#menu ul li’);
+Dans le premier cas JQuery/MooTools renvoient un seul élément, dans le second une collection.
+MooTools sépare bien les deux méthode, et est donc peut-être mieux structuré sur ce point.
